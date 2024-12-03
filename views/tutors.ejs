@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Jump Tutoring - Tutors</title>
+        <%- include('partials/header1.ejs') %>
+        
+        
+    </head>
+
+    <body>
+        <% if (isLoggedIn && isAdmin) { %>
+            <%- include('partials/navbar3.ejs') %>
+        <% } else if (isLoggedIn) { %>
+            <%- include('partials/navbar2.ejs') %> 
+        <% } else {%>
+            <%- include('partials/navbar1.ejs') %> 
+        <% } %>
+        
+        <div class="container">
+
+        <h1 class="heading-padding">Tutors at JUMP.</h1>
+        <br>
+        <p>Our tutors are NZ trained secondary school teachers or university graduates
+            (with relevant degrees) with many years of teaching and tutoring experience.</p>
+            <br>
+
+                <div class="row">
+                    
+                
+                    <div class="card col-sm-4">
+                  <img class="card-img-top" src="/public/images/ppg bubbles.PNG" alt="PPG Bubbles" >
+                  <div class="card-body">
+                    <h4 class="card-title">Bubbles</h4>
+                    <p class="card-text">Bubbles is an experienced Science tutor with over 8 years of teaching students 
+                        from Year 9 to Year 13. Known for her patient and interactive teaching approach, 
+                        Bubbles ensures that complex concepts become easy to understand. </p>
+                    
+                    <% if (!isLoggedIn) { %>
+                    <a href="login" class="btn btn-custom">Login to Book</a>
+                    <% } else { %>
+                    <a href="/booking" class="btn btn-custom">Book a Session</a>
+                    <% } %> 
+
+                  </div>
+                </div>
+
+                <div class="card col-sm-4">
+                        <img class="card-img-top" src="/public/images/ppg buttercup.PNG" alt="PPG Buttercup" >
+                        <div class="card-body">
+                          <h4 class="card-title">Buttercup</h4>
+                          <p class="card-text">Buttercup is a dedicated and experienced tutor specializing in 
+                           Science, with 5 years of teaching and tutoring students. Buttercup is excellent at engaging with students,
+                           making learning accessible and enjoyable. Buttercup will join us in 2025.</p>
+                              
+                          <a href="#" class="btn btn-custom">Coming Soon</a>
+                </div>
+                </div>
+
+                <div class="card col-sm-4">
+                    <img class="card-img-top" src="/public/images/ppg blossom.PNG" alt="PPG Blossom" >
+                    <div class="card-body">
+                      <h4 class="card-title">Blossom</h4>
+                      <p class="card-text">Blossom brings a wealth of experience in teaching. 
+                        She tailors lessons to meet each student's unique learning style.
+                       Bloossom is committed to fostering a positive learning environment 
+                       where students feel motivated to succeed. Blossom will join us in 2025.</p>
+                          
+                       <a href="#" class="btn btn-custom">Coming Soon</a>
+            </div>
+            </div>
+
+        
+        </div>
+    </body>
+    <br>
+    <footer>
+        <%- include('partials/footer1.ejs') %>
+    </footer>
+
+</html>

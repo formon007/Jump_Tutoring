@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Jump Tutoring - Subjects</title>
+        <%- include('partials/header1.ejs') %>    
+        <style>
+            body {
+            background-image: url("/public/images/stationary.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+    
+        }
+        </style>
+
+    </head>
+    
+    <body>
+        <% if (isLoggedIn && isAdmin) { %>
+            <%- include('partials/navbar3.ejs') %>
+        <% } else if (isLoggedIn) { %>
+            <%- include('partials/navbar2.ejs') %> 
+        <% } else {%>
+            <%- include('partials/navbar1.ejs') %> 
+        <% } %>
+        
+        <div class="container">
+
+        <h1 class="heading-padding">Subjects</h1>  
+            <br>
+            <div class="form-style">
+            <table class="table sub-time-table">
+                            
+                <thead>
+                    <tr>
+                        
+                        <th>Subject</th>
+                        <th>Price per Session</th>
+                    </tr>
+                </thead>
+
+                <tbody>        
+                    <% if (subjectsData.length !=0) {var i=1; subjectsData.forEach(function(data){
+                        %>
+
+                        <tr>
+                            
+                            <td><%=data.subject %></td>
+                            <td>$<%=data.price %></td>
+                        </tr>
+                        <% i++; }) %> <%}%>
+                </tbody>
+
+            </table>
+            <br>
+
+            <% if (!isLoggedIn) { %>
+                <p>Please <a href="/login">login</a> or <a href="/login">register</a> to book a session.</p>
+            <% } %>
+
+            
+            </div> 
+        </div>     
+    </body>
+    <br>
+    
+    <footer>
+        <%- include('partials/footer1.ejs') %>
+    </footer>
+
+</html>

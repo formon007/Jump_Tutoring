@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Jump Tutoring - Enquire</title>
+        <%- include('partials/header1.ejs') %>    
+        
+        <style>
+            body {
+            background-image: url("/public/images/books.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+    
+        }
+
+        h1, p {
+            color:white;
+        }
+        </style>
+    </head>
+
+    <body>
+        <% if (isLoggedIn && isAdmin) { %>
+            <%- include('partials/navbar3.ejs') %>
+        <% } else if (isLoggedIn) { %>
+            <%- include('partials/navbar2.ejs') %> 
+        <% } else {%>
+            <%- include('partials/navbar1.ejs') %> 
+        <% } %>
+        
+        <div class="container">
+            <h1 class="heading-padding">Contact Us</h1>
+            <br>
+            <p>If you would like to enquire about tutoring please 
+                complete the details below. We'll be in touch 
+                as soon as possible. The more details you can provide 
+                at this stage the more opportunity 
+                for us tp understand how our tutors can be most effective.
+            </p>
+            <br>
+
+            <div class="form-container">
+            <form action="/enquire" method="post">
+                
+                <div class="form-group">
+                <label>Student First Name:</label>
+                <input type="text" name="sfirstname" class="form-control" required>
+                </div>
+                
+                
+                <div class="form-group"> 
+                <label>Student Last Name:</label>
+                <input type="text" name="slastname" class="form-control" required>
+                </div>
+                
+                <div class="form-group"> 
+                <label>School Year</label>
+                <select type="text" name="schoolyear" class="form-control" requried>
+                    <option>Please Select</option>
+                    <option>Year 1</option>
+                    <option>Year 2</option>
+                    <option>Year 3</option>
+                    <option>Year 4</option>
+                    <option>Year 5</option>
+                    <option>Year 6</option>
+                    <option>Year 7</option>
+                    <option>Year 8</option>
+                    <option>Year 9</option>
+                    <option>Year 10</option>
+                    <option>Year 11/NCEA Level 1</option>
+                    <option>Year 12/NCEA Level 2</option>
+                    <option>Year 13/NCEA Level 3</option>                    
+                </select>
+                </div>
+              
+                <div class="form-group"> 
+                <label>Parent Name</label>
+                <input type="text" name="parentname" class="form-control">
+                </div>
+                
+                <div class="form-group">
+                <label>Phone Number</label>
+                <input type="number" name="phonenumber" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="email" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                <label>Suburb</label>
+                <input type="text" name="address" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                <label>Type of Tutoring</label>
+                <select type="text" name="typeoftutoring" class="form-control" required>
+                    <option value="" disabled selected>Please Select</option>
+                    <option>In Person Only</option>
+                    <option>Only Online</option>
+                    <option>Either</option>
+                </select>
+                </div>
+
+                <div class="form-group">
+                <label>Subjects</label>
+                <select type="text" name="subjects" class="form-control" required>
+                    <option value="" disabled selected>Please Select</option>
+                    <option>Maths</option>
+                    <option>Science</option>
+                    <option>Chemistry</option>
+                    <option>Other</option>
+                </select>
+                </div>
+
+                <label>Available Days</label><br>
+                
+                <div style="display: flex; gap: 15px;">
+                    <div>
+                        <input type="checkbox" name="availability" value="monday">
+                        <label>Monday</label>  
+                    </div>
+
+                    <div>
+                        <input type="checkbox" name="availability" value="tuesday">
+                        <label>Tueaday</label>
+                    </div>
+                
+                    <div>
+                        <input type="checkbox" name="availability" value="wednesday">
+                        <label>Wednesday</label>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" name="availability" value="thursday">
+                        <label>Thursday</label>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" name="availability" value="friday">
+                        <label>Friday</label>
+                    </div>
+                
+                    <div>
+                        <input type="checkbox" name="availability" value="saturday">
+                        <label>Saturday</label>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" name="availability" value="sunday">
+                        <label>Sunday</label>
+                    </div>                                                            
+                </div>
+                <br>
+                
+                                                
+                <label>Preferred Time</label><br>
+
+                <div style="display: flex; gap: 15px;">
+                    <div>
+                        <input type="checkbox" name="prefertime" value="morning">
+                        <label>Morning 9am-12pm</label>
+                    </div>
+                
+                    <div>
+                        <input type="checkbox" name="prefertime" value="afternoon_12">
+                    <label>Afternoon 12pm-3pm</label>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" name="prefertime" value="afternoon_3">
+                    <label>Afternoon 3pm-6pm</label>
+                    </div>
+                
+                    <div>
+                        <input type="checkbox" name="prefertime" value="evening">
+                    <label>Evening 6pm-8pm</label>
+                    </div>
+                    
+                    <div>
+                        <input type="checkbox" name="prefertime" value="other">
+                    <label>Other</label> 
+                    </div>
+                 
+                </div>                              
+                <br>
+
+                <div class="form-group">
+                <label>Additional Information</label>
+                <textarea name="message" rows="5" cols="30" class="form-control"></textarea>
+                <br>
+                </div>
+
+                
+                
+
+                <button type="submit" class="btn btn-custom">Submit</button>
+            </form>
+            </div>
+            
+        </div>
+
+        <script>
+            document.querySelector('form').addEventListener('submit', function(event) {
+                const availableDays = document.querySelectorAll('input[name="availability"]:checked');
+                const preferredTimes = document.querySelectorAll('input[name="prefertime"]:checked');
+        
+                if (availableDays.length === 0) {
+                    alert('Please select at least one available day.');
+                    event.preventDefault();
+                    return;
+                }
+        
+                if (preferredTimes.length === 0) {
+                    alert('Please select at least one preferred time.');
+                    event.preventDefault();
+                    return;
+                }
+            });
+        </script>
+        
+    </body>
+    <br>
+
+    <footer>
+        <%- include('partials/footer1.ejs') %>
+    </footer>
+</html>

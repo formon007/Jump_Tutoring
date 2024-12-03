@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light 
+justify-content-center">
+    <div class="container-fluid justify-content-center">
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" 
+        data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" 
+        aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link <%= currentPage === 'home' ? 'active' : '' %>" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link <%= currentPage === 'tutors' ? 'active' : '' %>" href="tutors">Tutors</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link <%= currentPage === 'subjects' ? 'active' : '' %>" href="subjects">Subjects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link <%= currentPage === 'times' ? 'active' : '' %>" href="times">Available Times</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link <%= currentPage === 'enquire' ? 'active' : '' %>" href="enquire">Enquire Now</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link <%= currentPage === 'login' ? 'active' : '' %>" href="login">Student Login/Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link <%= currentPage === 'admin' ? 'active' : '' %>" href="admin">Admin Login</a>
+                </li>
+            </ul>
+    </div>
+    </div>
+    
+    
+    
+</nav>
+

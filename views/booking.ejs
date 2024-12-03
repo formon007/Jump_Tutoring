@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Jump Tutoring - Book a Session</title>
+        <%- include('partials/header1.ejs') %>  
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">  
+    </head>
+
+    <body>
+        <% if (isLoggedIn && isAdmin) { %>
+            <%- include('partials/navbar3.ejs') %>
+        <% } else { %>
+            <%- include('partials/navbar2.ejs') %> 
+        <% } %>
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+
+            <h1 class="heading-padding">Book a Session</h1>
+            <br>           
+
+            <div class="form-container">
+
+            <form action="/booking" method="post">
+                
+                <div class="form-group">
+                <label>Select Subject</label>
+                <select name="subjects" id="subject-select" class="form-control" required>
+                    <option value="">Please Select</option>
+                    <option value="Science Level 1">Science Level 1</option>
+                    <option value="Chemistry Level 2">Chemistry Level 2</option>
+                    <option value="Chemistry Level 3">Chemistry Level 3</option>                    
+                </select>
+                </div>           
+
+                <div class="form-group">
+                <label>Select Time</label>            
+                <select name="time" id="time-select" class="form-control" required> 
+                    <option value="">Please Select</option>
+                </select>
+                </div>
+
+                <div class="form-group">
+                <label for="appointment-date">Select Date</label>
+                <input type="date" id="appointment-date" name="date" placeholder="Select Date" class="form-control" required>
+                </div>
+
+                <!-- Include Flatpickr JS -->
+                <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+                <!-- Initialize Flatpickr with weekend disabling and minDate set to tomorrow -->
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    const today = new Date();
+                    const tomorrow = new Date(today);
+                    tomorrow.setDate(today.getDate() + 1);
+
+                    // Format tomorrow's date as yyyy-mm-dd for Flatpickr
+                    const year = tomorrow.getFullYear();
+                    const month = String(tomorrow.getMonth() + 1).padStart(2, '0');
+                    const day = String(tomorrow.getDate()).padStart(2, '0');
+                    const minDate = `${year}-${month}-${day}`;
+
+                    flatpickr("#appointment-date", {
+                        dateFormat: "Y-m-d", // Set format to match minDate
+                        minDate: minDate, // Set tomorrow as the minimum selectable date
+                        disable: [
+                            function(date) {
+                                // Disable weekends (Saturday: 6, Sunday: 0)
+                                return (date.getDay() === 0 || date.getDay() === 6);
+                            }
+                        ]
+                    });
+                });
+            </script>
+                    
+                <button type="submit" class="btn btn-custom">Book</button>
+            </form>            
+        </div>
+        </div>
+        </div>
+        </div>
+        
+
+        <script>
+            document.getElementById('subject-select').addEventListener('change', function() {
+                var timeSelect = document.getElementById('time-select');
+                timeSelect.innerHTML = ''; // Clear any existing options
+
+                // Set the time based on the selected subject
+                var selectedSubject = this.value;
+                var timeOption;
+
+                switch (selectedSubject) {
+                    case 'Science Level 1':
+                        timeOption = new Option('3pm', '3pm');
+                        break;
+                    case 'Chemistry Level 2':
+                        timeOption = new Option('4pm', '4pm');
+                        break;
+                    case 'Chemistry Level 3':
+                        timeOption = new Option('5pm', '5pm');
+                        break;
+                    default:
+                        timeOption = new Option('Please Select', '');
+                }
+
+                // Add the new time option to the dropdown
+                timeSelect.appendChild(timeOption);
+            });
+        </script>
+
+        
+        
+    </body>
+    <br>
+
+    <footer>
+        <%- include('partials/footer1.ejs') %>
+    </footer>
+</html>
+
+

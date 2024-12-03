@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Jump Tutoring - Members Only</title>
+        <%- include('partials/header1.ejs') %>    
+    </head>
+    
+    <body>
+        <%- include('partials/navbar2.ejs') %>
+        <div class="container">
+        
+            <h1 class="heading-padding"><% if (typeof username !== 'undefined') { %>
+                Welcome, <%= username %>!
+            <% } %>You are now logged in.</h1>
+            <br>
+        <p>Below are some resources for your subjects. Watch this space, more resouces are added constantly.</p>
+        <br>
+
+        <h4>Science NCEA Level 1</h4>
+      
+        <h5><a href="https://www.nzqa.govt.nz/ncea/assessment/search.do?query=Science&view=exams&level=01"
+            target="_blank">NZQA External Exams</a></h5>
+        <h5><a href="https://www.nobraintoosmall.co.nz/html/Level1_science/NCEA1_science.html"
+            target="_blank">No Brain Too Small</a></h5>
+        <br>
+        
+        <h4>Chemistry NCEA Level 2</h4>
+       
+        <h5><a href="https://www.nzqa.govt.nz/ncea/assessment/search.do?query=Chemistry&view=exams&level=02&_gl=1*deplwh*_ga*MTc1ODgyMjQ3NC4xNzMxNDY5NjA0*_ga_TFQQ681L2E*MTczMTQ2OTYwMy4xLjEuMTczMTQ2OTYxNC4wLjAuMA.."
+            target="_blank">
+            NZQA External Exams</a></h5>
+        <h5><a href="https://www.nobraintoosmall.co.nz/html/senior_chemistry/NCEA2_chemistry.html"
+            target="_blank">
+            No Brain Too Small</a></h5>
+        <br>
+            
+        <h4>Chemistry NCEA Level 3</h4>
+        
+        <h5><a href="https://www.nzqa.govt.nz/ncea/assessment/search.do?query=Chemistry&view=exams&level=03&_gl=1*1c7nxoc*_ga*MTc1ODgyMjQ3NC4xNzMxNDY5NjA0*_ga_TFQQ681L2E*MTczMTQ2OTYwMy4xLjEuMTczMTQ3MDAyOC4wLjAuMA.."
+            target="_blank">
+            NZQA External Exams</a></h5>
+        <h5><a href="https://www.nobraintoosmall.co.nz/html/senior_chemistry/NCEA3_chemistry.html"
+            target="_blank">
+            No Brain Too Small</a></h5>
+
+
+        
+        </div>
+        
+    </body>
+    <br>
+
+    <footer>
+        <%- include('partials/footer1.ejs') %>
+    </footer>
+
+</html>

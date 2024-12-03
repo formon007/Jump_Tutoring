@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Jump Tutoring - Login/Register</title>
+        <%- include('partials/header1.ejs') %>   
+        
+        
+    </head>
+    
+    <body>
+        <%- include('partials/navbar1.ejs') %>
+        
+        <div class="container">
+        <div class="row">
+
+        <div class="col-sm-6">
+            <h1 class="heading-padding">Student Login</h1>
+            <br>
+
+            <div class="form-container">
+            <form action="/auth/user" method="post">
+
+                <div class="form-group">
+                <label>Username</label>
+                <input type="text" name="username" placeholder="Username" class="form-control" required>
+                </div> 
+
+                <div class="form-group">
+                <label>Password</label>
+                <input type="password" name="password" placeholder="Password" class="form-control" required>
+                </div>
+                
+
+                <button type="submit" class="btn btn-custom">Login</button>
+            </form>
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <h1 class="heading-padding">New Student Register</h1>
+            <br>
+
+            <div class="form-container">
+            <form action="/register" method="post">
+
+                <div class="form-group">
+                <label>First Name</label>
+                <input type="text" name="firstname" placeholder="First Name" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" name="lastname" placeholder="Last Name" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                <label>Username</label>                
+                <input type="text" name="username" placeholder="Username" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                <label>Password</label>
+                <input type="password" name="password" placeholder="Password" class="form-control" required>    
+                </div>
+
+                <div class="form-group">
+                <label>Confirm Password</label>
+                <input type="password" name="confirmpass" placeholder="Confirm Password" class="form-control" required>   
+                </div>
+
+                <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="email" placeholder="Email" class="form-control" required>  
+                </div>           
+                
+
+                <button type="submit" class="btn btn-custom">Register</button>
+            </form>
+        </div>    
+        </div>
+    </div>
+    </div>
+    </body>
+    <br>
+
+    <footer>
+        <%- include('partials/footer1.ejs') %>
+    </footer>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Jump Tutoring - Booking Successful</title>
+        <%- include('partials/header1.ejs') %>    
+    </head>
+
+    <body>
+        <% if (isLoggedIn && isAdmin) { %>
+            <%- include('partials/navbar3.ejs') %>
+        <% } else { %>
+            <%- include('partials/navbar2.ejs') %> 
+        <% } %>
+
+        <div class="container">
+            <h1 class="heading-padding">Booking Successful</h1>
+            <br>
+            <p>Thank you for your booking.</p>
+            <p>Click <a href="mybooking">here</a> to view your bookings.</p>
+            
+            <p>Return to <a href="/">Home</a>.</p>
+            
+            
+            
+        </div>
+    </body>
+    <br>
+
+    <footer>
+        <%- include('partials/footer1.ejs') %>
+    </footer>
+</html>

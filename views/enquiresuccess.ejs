@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Jump Tutoring - Enquire Success</title>
+        <%- include('partials/header1.ejs') %>    
+    </head>
+
+    <body>
+        <% if (isLoggedIn && isAdmin) { %>
+            <%- include('partials/navbar3.ejs') %>
+        <% } else if (isLoggedIn) { %>
+            <%- include('partials/navbar2.ejs') %> 
+        <% } else {%>
+            <%- include('partials/navbar1.ejs') %> 
+        <% } %>
+
+        <div class="container">
+            <h1 class="heading-padding">Message Received</h1>
+            <br>
+            <p>Thank you for your message.</p>
+            <p>We will get in touch with you shortly.</p>
+            
+            <p>Return to <a href="/">Home</a>.</p>            
+        </div>
+    </body>
+    <br>
+
+    <footer>
+        <%- include('partials/footer1.ejs') %>
+    </footer>
+</html>

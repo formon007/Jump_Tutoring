@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Jump Tutoring - View All Bookings</title>
+        <%- include('partials/header1.ejs') %>    
+
+        <style>
+            body {
+            background-image: url("/public/images/openbook.jpg");
+            background-size: cover;
+            background-position: center ;
+            background-repeat: no-repeat;    
+        }
+        h1 {
+            color:white;
+        }
+        
+        </style>
+    </head>
+
+    <body>
+        <%- include('partials/navbar3.ejs') %> 
+        <div class="container">
+            <h1 class="heading-padding">All Bookings</h1>
+            <br>
+            <table class="table booking-table">
+                <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Date</th>
+                    <th>Time</th>                    
+                    <th>Subjects</th>
+                    
+                    <th>Action</th> 
+                                      
+                </tr>
+                </thead>
+
+                <tbody>
+
+                <% if (bookingData.length !=0) {var i=1; bookingData.forEach( function(data){
+                    const bookingDate = new Date (data.date);
+                    const currentDate = new Date();
+                    const isPastBooking = bookingDate < currentDate;
+                %>
+
+                <tr>
+                    <td><%=data.username %></td>
+                    <td><%=data.date %></td>
+                    <td><%=data.time %></td>                    
+                    <td><%=data.subjects %></td>
+                    
+
+                    <td>
+                    <form action="/delete/admin" method="post" style="display:inline" 
+                        onsubmit="return confirm('Are you sure you want to delete this booking?')">
+
+                        <input type="hidden" name="booking_id" value="<%= data.id %>">
+                        <button type="submit" class="btn btn-warning" 
+                        <%= isPastBooking ? 'disabled style="background-color: grey;"' : '' %>>Delete</button>
+                    </form>
+                    </td>
+                    
+                </tr>
+                <% i++; }) %> <%}%>
+                
+                </tbody>
+            </table>
+            <br>
+
+        </div>
+    </body>
+    <br>
+
+    <footer>
+        <%- include('partials/footer1.ejs') %>
+    </footer>
+</html>

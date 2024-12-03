@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Jump Tutoring - View All Enquiries</title>
+        <%- include('partials/header1.ejs') %>    
+    </head>
+
+    <body>
+        <%- include('partials/navbar3.ejs') %> 
+        <div class="container">
+            <h1 class="heading-padding">All Enquiries</h1>
+            <br>
+        </div>
+
+        <div class="container">
+            
+            <div class="table-responsive"></div>
+            <table class="table table-striped table-bordered">
+                <thead>
+                <tr>
+                    
+                    <th>First Name</th>
+                    <!--<th>Last Name</th> -->
+                    
+                    <th>School Year</th>
+                    <!--<th>Parent Name</th>-->
+                    
+                    <th>Phone Number</th>
+                    <!--<th>Email</th>
+                    <th>Address</th>
+                    <th>Type of Tutoring</th>-->
+                                    
+                    <th>Subject</th>
+
+                    <!--<th>Availability</th>
+                    <th>Preferred Time</th>-->
+                    
+                    <th>Message</th>
+                    <th>Admin Comment</th>
+                    
+                </tr>
+                </thead>
+
+                <tbody>
+
+                <% if (enquireData.length !=0) {var i=1; enquireData.forEach( function(data){
+                %>
+                <tr>
+                    
+                    <td><%=data.sfirstname %></td>
+                    <!--<td><%=data.slastname %></td>-->
+                    
+                    <td><%=data.schoolyear %></td>
+                    <!--<td><%=data.parentname %></td>-->
+                    
+                    <td><%=data.phonenumber %></td>
+
+                    <!--<td><%=data.email %></td>
+                    <td><%=data.address %></td>
+                    <td><%=data.typeoftutoring %></td>-->
+                    
+                    
+                    <td><%=data.subjects %></td>
+
+                    <!--<td><%=data.availability %></td>
+                    <td><%=data.prefertime %></td>-->
+                    
+                    <td><%=data.message %></td>
+                    <td><%=data.admincomment %></td>
+                    <td>
+                        <form class="comment-form" data-enquiry-id="<%= data.id %>" style="display: flex; align-items: center;">
+                            <input type="text" class="comment-input" value="" style="flex-grow: 1; margin-right: 10px;">
+                           
+                            <button type="button" class="save-comment btn btn-custom">Save</button>
+                        </form>
+                    </td>    
+                </tr>
+                <% i++; }) %> <%}%>
+                
+                </tbody>
+            </table>
+            </div>
+            
+            <br>
+        </div>
+
+
+        <script>
+            document.querySelectorAll('.save-comment').forEach((button) => {
+    button.addEventListener('click', function () {
+        const form = button.closest('.comment-form');
+        const enquiryId = form.getAttribute('data-enquiry-id');
+        const commentInput = form.querySelector('.comment-input');
+        const adminComment = commentInput.value.trim(); // Get the input value
+
+        // Ensure comment is not empty
+        if (!adminComment) {
+            alert('Comment cannot be empty!');
+            return;
+        }
+
+        // Send the comment data to the server
+        fetch('/savecomment', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                enquiry_id: enquiryId,
+                admincomment: adminComment,
+            }),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.success) {
+                    alert('Comment saved successfully.');
+
+                    // Clear the comment input box
+                    commentInput.value = '';
+
+                    // Optionally update the table's "Admin Comment" column
+                    const adminCommentCell = form.closest('tr').querySelector('td:nth-last-child(2)');
+                    if (adminCommentCell) {
+                        adminCommentCell.innerText = adminComment;
+                    }
+                } else {
+                    alert('Failed to save comment: ' + data.message);
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                alert('An error occurred while saving the comment.');
+            });
+    });
+});
+        </script>
+           
+
+
+
+        
+    </body>
+    <br>
+
+    <footer>
+        <%- include('partials/footer1.ejs') %>
+    </footer>
+</html>

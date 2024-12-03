@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        <%- include('partials/header1.ejs') %>    
+    <style>
+        body {
+        background-image: url("/public/images/pencils2.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+    }
+        p {
+            color:white;         
+        }
+
+    </style>
+
+    </head>
+    
+    <body>
+        <% if (isLoggedIn && isAdmin) { %>
+            <%- include('partials/navbar3.ejs') %>
+        <% } else if (isLoggedIn) { %>
+            <%- include('partials/navbar2.ejs') %> 
+        <% } else {%>
+            <%- include('partials/navbar1.ejs') %> 
+        <% } %>
+
+        <div class="container">
+            <div class="row">
+    
+            <div class="col-sm-6">
+                <h1 class="heading-padding" style="color:white">Learning Made Simple, Success Made Possible.</h1>
+                <br>
+
+                <div style="text-align: justify;">
+    
+                <p>JUMP. is a customised tutoring service that aims to support 
+                    students studying NCEA Science Subjects.</p>
+                    <br>
+
+                <p>We provide private tutoring 
+                    so each student gets the full attention from the tutor.</p>
+                    <br>
+                
+                <p>Our mission is to build confidence, enhance knowledge, and foster a love for learning in every student. 
+                    Partner with us to unlock your full academic potential and achieve success.</p>
+                    <br>
+
+                <a href="tutors" class="btn btn-custom" style="margin-right:20px">About the Tutors</a>
+
+                <% if (!isLoggedIn) { %>
+                <a href="login" class="btn btn-custom">Login to Book</a>
+                <% } else { %>
+                <a href="/booking" class="btn btn-custom">Book a Session</a>
+                <% } %>
+
+
+            </div>
+            </div>
+            </div>
+        
+    </body>
+    <br>
+    <footer>
+        <%- include('partials/footer1.ejs') %>
+    </footer>
+
+</html>

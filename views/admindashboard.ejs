@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('partials/header1.ejs') %>   
+        
+        <style>
+            body {
+            background-image: url("/public/images/page.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;    
+        }
+        
+        </style>
+    </head>
+    
+    <body>
+        <%- include('partials/navbar3.ejs') %>
+        <div class="container">
+        
+            <h1 class="heading-padding"><% if (typeof adminname !== 'undefined') { %>
+                Welcome, <%= adminname %>!
+            <% } %>You are now logged in.</h1>
+            <br>
+            
+            <a href="/booking" class="btn btn-custom">Book a Session</a>
+            <a href="/viewallbooking" class="btn btn-custom">View All Bookings</a>
+            <a href="/viewallenquiry" class="btn btn-custom">View All Enquiries</a>
+
+        </div>
+        
+    </body>
+    <br>
+
+    <footer>
+        <%- include('partials/footer1.ejs') %>
+    </footer>
+
+</html>

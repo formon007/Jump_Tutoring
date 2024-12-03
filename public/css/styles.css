@@ -1,0 +1,118 @@
+h1 {
+    color:rgb(4,60,163);
+}
+
+p {
+    color:brown;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: larger;
+}
+
+.heading-padding {
+    margin-top: 40px;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.nav-link.active {
+    color: #ffffff !important;  /* Text color when active */
+    background-color: rgb(4,60,163); /* Background color when active */
+    border-radius: 5px;        /* Optional for rounded effect */
+    font-size: larger;
+    font-family: sans-serif;
+}
+
+.nav-link {
+    color: rgb(4,60,163) !important ; 
+    font-size: larger;
+    font-family: sans-serif;
+}
+
+.form-container{    
+    padding: 20px; /* Adds some padding */
+    border: 1px solid #ddd; /* Optional: adds a light border */
+    border-radius: 5px; /* Optional: rounds the corners */
+    background-color: #f9f9f9; /* Optional: background color for contrast */
+}
+
+.btn-custom {
+    background-color:rgb(4,60,163);
+    color:white;
+}
+
+.username-text {
+    color:rgb(4,60,163) !important;
+    font-size: larger;
+    
+}
+
+
+
+.sub-time-table {
+    color:rgb(4,60,163);
+    font-size: larger;
+
+}
+
+.sub-time-table th{
+    font-size: x-large;
+}
+
+.booking-table {
+    color:white;
+    font-size: x-large;
+}
+
+
+
+
+
+
+/*chatgpt suggestion works*/
+/* Ensures the available days section stays responsive */
+.form-container {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    overflow: hidden; /* Ensures content stays within the container */
+}
+
+.form-container div[style] {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap; /* Allows items to wrap onto a new line */
+    margin-bottom: 15px;
+}
+
+.form-container div[style] > div {
+    flex: 1 1 calc(33.33% - 10px); /* Each checkbox gets equal width */
+    min-width: 120px; /* Minimum width for small screens */
+    margin: 5px 0; /* Add some margin for spacing */
+}
+
+/* Responsive styling for smaller screens */
+@media (max-width: 600px) {
+    .form-container div[style] {
+        flex-direction: column; /* Stack items vertically */
+        gap: 10px;
+    }
+
+    .form-container div[style] > div {
+        flex: 1 1 auto; /* Reset width for stacked items */
+        min-width: 100%; /* Ensure they take full width */
+    }
+}
+
+
+
+.navbar {
+    width:100%;    
+}
+
+
